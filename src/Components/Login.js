@@ -48,7 +48,7 @@ const submitHandler = async() => {
           "Content-type": "application/json",
         },
       };
-      const user = await axios.post("http://localhost:5000/api/user/login",{email,password : passward},config);
+      const user = await axios.post("https://chat-app-server-v2wu.onrender.com/api/user/login",{email,password : passward},config);
       toast({
         title: "Login Successful",
         status: "success",

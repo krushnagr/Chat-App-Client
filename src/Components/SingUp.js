@@ -108,7 +108,7 @@ const submitHandler = async() => {
       },
     };
     
-    const {data} = await axios.post("http://localhost:5000/api/user",
+    const {data} = await axios.post("https://chat-app-server-v2wu.onrender.com/api/user",
     {name,email,password: passward, pic},config);
     toast({
       title : "Registration Successfull", 
