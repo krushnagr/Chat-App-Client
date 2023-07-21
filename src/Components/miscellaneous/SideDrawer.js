@@ -46,6 +46,7 @@ const SideDrawer = () => {
         };
         const {data} = await axios.get(`http://localhost:5000/api/user?search=${serch}`,config);
         setserchdata(data);
+        // console.log(serchdata);
         setloading(false);
     }catch(err){
       toast({
@@ -73,7 +74,7 @@ const SideDrawer = () => {
         const {data} = await axios.post("http://localhost:5000/api/chat",{userId},config);
         if(!chat.find((c)=> c._id === data._id))setchat([data,...chat])
         setselectedChat(data);
-        console.log(data);
+        // console.log(data);
         setloadingChat(false);
         onClose()
       }
@@ -158,8 +159,9 @@ const SideDrawer = () => {
                 ):(
                   serchdata && serchdata.map((s)=>(
                     <UserListItem
+                    key = {user._id}
                     user={s}
-                    handelfunction={()=>accessChat(s._id)}
+                    handleFunction={()=>accessChat(s._id)}
                     />
                   ))
                 )

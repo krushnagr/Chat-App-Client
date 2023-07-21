@@ -16,7 +16,7 @@ const ChatPage = () => {
             justifyContent={"space-between"}
             w="100%" h="91.5vh" p="10px">
                 {user && <MyChats/>}
-                {user && <ChatBox/>}
+                {/* {user && <ChatBox/>} */}
             </Box>
         </div>
     )

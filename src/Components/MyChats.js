@@ -5,6 +5,7 @@ import { ChatState } from '../context/ChatProvider';
 import ChatLoading from './ChatLoading';
 import { AddIcon } from '@chakra-ui/icons';
 import { getSender } from './config/ChatLogic';
+import GroupChatModal from './miscellaneous/GroupChatModal';
 
 const MyChats = () => {
   const [loggedUser, setloggedUser] = useState();
@@ -20,7 +21,7 @@ const MyChats = () => {
         }
       }
       const {data} = await axios.get("http://localhost:5000/api/chat",config);
-      console.log(data);
+      // console.log(data);
       setchat(data);
     }
     catch(err){
@@ -36,8 +37,10 @@ const MyChats = () => {
   }
 
   useEffect(()=>{
+    
     setloggedUser(JSON.parse(localStorage.getItem("userInfo")))
     featchChats();
+    // eslint-disable-next-line
   },[])
 
   return (
@@ -45,9 +48,10 @@ const MyChats = () => {
       display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
       flexDir="column"
       alignItems="center"
+      // justifyContent={"center"}
       p={3}
       bg="white"
-      width={{ base: "100%", lg: "31%", md: "35%"}}
+      width={{ base: "full", lg: "31%", md: "35%"}}
       borderRadius="lg"
       borderWidth="1px"
     >
@@ -62,7 +66,7 @@ const MyChats = () => {
         alignItems="center"
       >
         My Chats
-        {/* <GroupChatModal> */}
+        <GroupChatModal>
           <Button
             d="flex"
             fontSize={{ base: "15px", md: "8px", lg: "17px" }}
@@ -70,7 +74,7 @@ const MyChats = () => {
           >
             New Group Chat
           </Button>
-        {/* </GroupChatModal> */}
+        </GroupChatModal>
       </Box>
       <Box
         d="flex"
