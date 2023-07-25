@@ -121,7 +121,7 @@ const Login = () => {
         width="100%"
         style={{ marginTop: 15 }}
         isLoading={loading}
-        onClick={submitHandler}>SignUp</Button>
+        onClick={submitHandler}>Login</Button>
     </VStack>
   )
 }

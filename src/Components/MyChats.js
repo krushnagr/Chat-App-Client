@@ -7,7 +7,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import { getSender } from './config/ChatLogic';
 import GroupChatModal from './miscellaneous/GroupChatModal';
 
-const MyChats = () => {
+const MyChats = (featchAgain) => {
   const [loggedUser, setloggedUser] = useState();
   const {user,selectedChat, setselectedChat,chat, setchat} = ChatState();
 

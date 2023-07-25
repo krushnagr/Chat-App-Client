@@ -1,5 +1,5 @@
 // import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { ChatState } from '../context/ChatProvider'
 import { Box } from '@chakra-ui/react';
 import SideDrawer from '../Components/miscellaneous/SideDrawer';
@@ -8,6 +8,7 @@ import MyChats from '../Components/MyChats';
 
 const ChatPage = () => {
     const {user} = ChatState();
+    const [featchAgain,setfeatchAgain] = useState(false);
     return (
         <div style={{width : "100%"}}>
             {user && <SideDrawer/>}
@@ -15,8 +16,8 @@ const ChatPage = () => {
             display={"Flex"}
             justifyContent={"space-between"}
             w="100%" h="91.5vh" p="10px">
-                {user && <MyChats/>}
-                {/* {user && <ChatBox/>} */}
+                {user && <MyChats featchAgain = {featchAgain}/>}
+                {user && <ChatBox featchAgain = {featchAgain} setfeatchAgain = {setfeatchAgain}/>}
             </Box>
         </div>
     )

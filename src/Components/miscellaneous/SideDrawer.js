@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../UserAvtar/UserListItem';
+import { getSender } from '../config/ChatLogic';
 
 const SideDrawer = () => {
   const [serch,setserch] = useState("");
@@ -14,7 +15,7 @@ const SideDrawer = () => {
   const [loadingChat,setloadingChat] = useState(false)
   const [serchdata, setserchdata] = useState([]);
 
-  const {user, setselectedChat,chat, setchat} = ChatState();
+  const {user, setselectedChat,chat, setchat,notification, setnotification} = ChatState();
   const navigate = useNavigate();
   const btnRef = React.useRef();
   const toast = useToast();
@@ -116,6 +117,20 @@ const SideDrawer = () => {
             <MenuButton p={1}>
               <BellIcon fontSize="2xl" m={1}/>
             </MenuButton>
+            <MenuList pl={2} cursor={"pointer"}>
+              {!notification.length && "No new Messages"}
+              {notification.map((notify)=>(
+                <menuItem key={notify._id} onClick={()=>{
+                  setselectedChat(notify.chat)
+                  setnotification(notification.filter((n)=> n !==notify))
+                }}>
+                  {
+                      notify.chat.isGroupChat? `New Message in ${notify.chat.chatName}`
+                      : `New Message from ${getSender(user,notify.chat.users)}`
+                  }
+                </menuItem>
+              ))}
+            </MenuList>
           </Menu>
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>
