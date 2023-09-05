@@ -8,7 +8,7 @@ import UpdateGroupName from './miscellaneous/UpdateGroupName';
 import axios from 'axios';
 import ScrolbarChat from './ScrolbarChat';
 import {io} from "socket.io-client"
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://chat-app-server-v2wu.onrender.com";
 var socket,selectedChatCompare;
 
 
