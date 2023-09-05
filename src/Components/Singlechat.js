@@ -36,7 +36,7 @@ const Singlechat = ({featchAgain,setfeatchAgain}) => {
             },
           };
           setnewMessage("");
-          const {data} = await axios.post("http://localhost:5000/api/message",{
+          const {data} = await axios.post("https://chat-app-server-v2wu.onrender.com/api/message",{
             "content" : newMessage,
             "chatId" : selectedChat
           },config);
@@ -70,7 +70,7 @@ const Singlechat = ({featchAgain,setfeatchAgain}) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `https://chat-app-server-v2wu.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessage(data);
