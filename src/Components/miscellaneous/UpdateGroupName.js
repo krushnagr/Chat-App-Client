@@ -34,7 +34,7 @@ const UpdateGroupName = (fetchAgain, setfeatchAgain) => {
               Authorization: `Bearer ${user.token}`,
             },
           };
-          const {data} = await axios.put("http://localhost:5000/api/chat/rename",{
+          const {data} = await axios.put("https://chat-app-server-v2wu.onrender.com/api/chat/rename",{
             chatId: selectedChat._id,
             chatName : groupChatName
           },config)
@@ -81,7 +81,7 @@ const UpdateGroupName = (fetchAgain, setfeatchAgain) => {
           },
         };
         const { data } = await axios.put(
-          `http://localhost:5000/api/chat/groupremove`,
+          `https://chat-app-server-v2wu.onrender.com/api/chat/groupremove`,
           {
             chatId: selectedChat._id,
             userId: user1._id,
@@ -116,7 +116,7 @@ const UpdateGroupName = (fetchAgain, setfeatchAgain) => {
           Authorization: `Bearer ${user.token}`,
         },
       }
-      const { data } = await axios.get(`http://localhost:5000/api/user?search=${query}`, config);
+      const { data } = await axios.get(`https://chat-app-server-v2wu.onrender.com/api/user?search=${query}`, config);
       setserchresult(data);
       // console.log(serchresult);
       setLoading(false);
@@ -165,7 +165,7 @@ const UpdateGroupName = (fetchAgain, setfeatchAgain) => {
             },
           };
           const { data } = await axios.put(
-            `http://localhost:5000/api/chat/groupadd`,
+            `https://chat-app-server-v2wu.onrender.com/api/chat/groupadd`,
             {
               chatId: selectedChat._id,
               userId: uset._id,
