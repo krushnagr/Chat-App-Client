@@ -21,7 +21,7 @@ const MyChats = (featchAgain) => {
         }
       }
       const {data} = await axios.get("https://chat-app-server-v2wu.onrender.com/api/chat",config);
-      // console.log(data);
+      // console.log(data); 
       setchat(data);
     }
     catch(err){
