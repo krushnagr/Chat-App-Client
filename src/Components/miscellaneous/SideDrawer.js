@@ -45,7 +45,7 @@ const SideDrawer = () => {
             Authorization : `Bearer ${user.token}`,
           }
         };
-        const {data} = await axios.get(`http://localhost:5000/api/user?search=${serch}`,config);
+        const {data} = await axios.get(`https://chat-app-server-v2wu.onrender.com/api/user?search=${serch}`,config);
         setserchdata(data);
         // console.log(serchdata);
         setloading(false);
@@ -72,7 +72,7 @@ const SideDrawer = () => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const {data} = await axios.post("http://localhost:5000/api/chat",{userId},config);
+        const {data} = await axios.post("https://chat-app-server-v2wu.onrender.com/api/chat",{userId},config);
         if(!chat.find((c)=> c._id === data._id))setchat([data,...chat])
         setselectedChat(data);
         // console.log(data);
